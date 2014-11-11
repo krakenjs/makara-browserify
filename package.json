@@ -1,0 +1,17 @@
+{
+  "name": "browserify-kraken-spudbundle",
+  "version": "1.0.0",
+  "description": "Tools to browserify content bundles for krakenjs apps.",
+  "main": "index.js",
+  "author": "Aria Stewart <ariastewart@paypal.com>",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "async": "^0.9.0",
+    "browserify": "^6.2.0",
+    "glob": "^4.0.6",
+    "iferr": "^0.1.2",
+    "mkdirp": "^0.5.0",
+    "spundle": "^1.0.0",
+    "through2": "^0.6.3"
+  }
+}
