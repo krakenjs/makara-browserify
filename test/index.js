@@ -24,3 +24,12 @@ test('build', function (t) {
     });
     t.end();
 });
+
+test('languge pack path', function (t) {
+    t.equal(bksb.languagePackPath({
+        country: "XC",
+        language: "en"
+    }), 'en-XC/_languagepack.js');
+    t.end();
+});
+
