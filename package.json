@@ -1,5 +1,5 @@
 {
-  "name": "browserify-kraken-spudbundle",
+  "name": "makara-browserify",
   "version": "1.0.0",
   "description": "Tools to browserify content bundles for krakenjs apps.",
   "main": "index.js",
