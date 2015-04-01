@@ -6,12 +6,12 @@ var fs = require('fs');
 
 var bksb = require('../');
 
-test('build', function (t) {
+test('build', function(t) {
     var root = path.resolve(__dirname, 'fixture');
-    bksb.build(root, function (err) {
+    bksb.build(root, function(err) {
         t.error(err, 'no error');
 
-        fs.readFile(path.resolve(root, '.build/en-XC/_languagepack.js'), function (err, data) {
+        fs.readFile(path.resolve(root, '.build/en-XC/_languagepack.js'), function(err, data) {
             t.error(err, 'no error loading result');
 
             var result;
@@ -25,11 +25,29 @@ test('build', function (t) {
     t.end();
 });
 
-test('languge pack path', function (t) {
+test('languge pack path', function(t) {
     t.equal(bksb.languagePackPath({
         country: "XC",
         language: "en"
     }), 'en-XC/_languagepack.js');
+    t.equal(bksb.languagePackPath('en-XC'), 'en-XC/_languagepack.js');
+    t.equal(bksb.languagePackPath({
+        langtag: {
+            language: {
+                language: 'en',
+                extlang: []
+            },
+            script: null,
+            region: 'XC',
+            variant: [],
+            extension: [],
+            privateuse: []
+        },
+        privateuse: [],
+        grandfathered: {
+            irregular: null,
+            regular: null
+        }
+    }), 'en-XC/_languagepack.js');
     t.end();
 });
-
