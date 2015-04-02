@@ -6,15 +6,26 @@ module.exports = {
     build: function (root, cb) {
         require('./build')(root, cb);
     },
-    languagePackPath: function languagePackPath(locality) {
-        // Handle PayPal-style input
-        if (locality.language && locality.country) locality = locality.language + '-' + locality.country;
-
-        // Handle strings
-        if (typeof locality == 'string') locality = bcp47.parse(locality);
-
-        if (!locality || !locality.langtag || !locality.langtag.language || !locality.langtag.language.language || !locality.langtag.region) throw new Error('Invalid locality');
-
-        return locality.langtag.language.language + '-' + locality.langtag.region + '/_languagepack.js';
+    languagePackPath: languagePackPath,
+    middleware: function() {
+        return function (req, res, next) {
+            if (!res.locals.makara) res.locals.makara = {};
+            res.locals.makara.languagePackPath = languagePackPath(res.locals.locale);
+            next();
+        };
     }
+
 };
+
+function languagePackPath(locale) {
+    if (!locale) throw new Error("Must specify a locale");
+    // Handle PayPal-style input
+    if (locale.language && locale.country) locale = locale.language + '-' + locale.country;
+
+    // Handle strings
+    if (typeof locale == 'string') locale = bcp47.parse(locale);
+
+    if (!locale || !locale.langtag || !locale.langtag.language || !locale.langtag.language.language || !locale.langtag.region) throw new Error('Invalid locale');
+
+    return locale.langtag.language.language + '-' + locale.langtag.region + '/_languagepack.js';
+}
