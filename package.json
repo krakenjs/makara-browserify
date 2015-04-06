@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "Aria Stewart <ariastewart@paypal.com>",
   "license": "Apache 2.0",
+  "repository": "https://github.com/krakenjs/makara-browserify.git",
+  "publishConfig": {
+      "registry": "https://registry.npmjs.com/"
+  },
   "scripts": {
     "test": "tape test/**.js"
   },
