@@ -18,9 +18,9 @@ module.exports = function build(appRoot, cb) {
         }
 
         var locales = paths.map(function (p) {
-            var m = /(.*)\/(.*)/.exec(path.relative(localeRoot, p));
+            var m = /(.*)+(\/|\\)+(.*)/.exec(path.relative(localeRoot, p));
 
-            return m[2] + '-' + m[1];
+            return m[3] + '-' + m[1];
         });
 
         async.each(locales, streamLocale, cb);
