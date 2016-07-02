@@ -18,7 +18,7 @@ module.exports = function build(appRoot, cb) {
         }
 
         var locales = paths.map(function (p) {
-            var m = /(.*)\/(.*)/.exec(path.relative(localeRoot, p));
+            var m = new RegExp('(.*)\\' + path.sep + '(.*)').exec(path.relative(localeRoot, p));
 
             return m[2] + '-' + m[1];
         });
