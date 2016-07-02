@@ -19,6 +19,7 @@ test('build', function(t) {
 
             t.ok(result['en-XC'], "found our language in the output");
             t.equal(result['en-XC']['index.properties'].hello, 'World', "found translation");
+            t.equal(result['en-XC']['nested/index.properties'].hello, 'World', "found nested translation");
         });
 
     });
