@@ -1,6 +1,6 @@
 {
   "name": "makara-browserify",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Tools to browserify content bundles for krakenjs apps.",
   "main": "index.js",
   "author": "Aria Stewart <ariastewart@paypal.com>",
