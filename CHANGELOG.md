@@ -1,4 +1,4 @@
-### unreleased
+### v1.2.6
 
 * modify to match the `makara-builder` 2.0 API. See: https://github.com/krakenjs/makara-builder/blob/v2.x/README.md#api and https://github.com/krakenjs/makara-builder/blob/v2.x/CHANGELOG.md#v200
 
